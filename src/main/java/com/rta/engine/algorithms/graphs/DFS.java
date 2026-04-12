@@ -28,6 +28,14 @@ public class DFS {
         System.out.println();
 //        System.out.println("DFS Traversal finishing from vertex:"+curr);
     }
+
+    public static void traverseAll(ArrayList<Edge>[] graph) {
+        boolean[] visited = new boolean[graph.length];
+        System.out.println("Performing DFS Traversal (All Components):");
+        for(int i=0; i<graph.length; i++){
+            if(!visited[i]){
+                dfs(graph, i, visited);
+            }
+        }
+    }
 }
-
-

@@ -36,6 +36,14 @@ public class BFS {
         System.out.println();
         System.out.println("BFS Traversal finishing from vertex:"+start);
     }
+
+    public static void traverseAll(ArrayList<Edge>[] graph) {
+        boolean[] visited = new boolean[graph.length];
+        System.out.println("Performing BFS Traversal (All Components):");
+        for(int i=0; i<graph.length; i++){
+            if(!visited[i]){
+                bfs(graph, i, visited);
+            }
+        }
+    }
 }
-
-
