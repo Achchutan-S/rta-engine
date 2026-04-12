@@ -1,5 +1,7 @@
 package com.rta.engine.algorithms.graphs;
 
+import com.rta.engine.model.graph.Edge;
+
 import java.util.*;
 
 /**
@@ -14,52 +16,25 @@ import java.util.*;
  */
 public class BFS {
 
-    /**
-     * Performs BFS traversal from a given source vertex
-     *
-     * @param graph adjacency list representation of the graph
-     * @param source the starting vertex for BFS
-     * @return list of vertices in BFS order
-     */
-    public List<Integer> traverse(Map<Integer, List<Integer>> graph, int source) {
-        List<Integer> result = new ArrayList<>();
 
-        // TODO: Implement BFS traversal
-        // 1. Handle null/empty graph
-        // 2. Create visited set and queue
-        // 3. Add source to queue and mark as visited
-        // 4. While queue is not empty:
-        //    - Poll vertex from queue
-        //    - Add to result
-        //    - For each unvisited neighbor: mark visited and add to queue
+    public static void bfs(ArrayList<Edge>[] graph,int start ,boolean[] visited) {
+        System.out.println("BFS Traversal starting from vertex:"+start);
+        Queue<Integer> queue = new LinkedList<>();
 
-        return result;
-    }
-
-    /**
-     * Checks if a path exists between two vertices
-     *
-     * @param graph adjacency list representation of the graph
-     * @param source the starting vertex
-     * @param target the destination vertex
-     * @return true if a path exists, false otherwise
-     */
-    public boolean hasPath(Map<Integer, List<Integer>> graph, int source, int target) {
-        // TODO: Implement path existence check using BFS
-        // 1. Handle edge case: source == target
-        // 2. Use BFS to search from source
-        // 3. Return true if target is found, false otherwise
-        return false;
-    }
-
-    /**
-     * Gets the description of the algorithm
-     *
-     * @return algorithm description
-     */
-    public String getDescription() {
-        return "BFS (Breadth-First Search): A graph traversal algorithm that explores vertices level by level " +
-               "using a queue, visiting all neighbors before moving to the next level.";
+        queue.add(start); // Starting from vertex start in case of multiple connected components
+        while(!queue.isEmpty()){
+            int curr = queue.poll();
+            if(!visited[curr]){
+                System.out.print(curr +" ");
+                visited[curr] = true;
+                //add all neighbors to the queue
+                for(Edge e: graph[curr]){
+                     queue.add(e.dest);
+                }
+            }
+        }
+        System.out.println();
+        System.out.println("BFS Traversal finishing from vertex:"+start);
     }
 }
 

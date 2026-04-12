@@ -72,9 +72,7 @@ public class AlgorithmService {
      * @param source starting vertex
      * @return list of vertices in BFS order
      */
-    public List<Integer> performBFS(Map<Integer, List<Integer>> graph, int source) {
-        return bfs.traverse(graph, source);
-    }
+
 
     /**
      * Performs DFS traversal on the graph
@@ -83,9 +81,7 @@ public class AlgorithmService {
      * @param source starting vertex
      * @return list of vertices in DFS order
      */
-    public List<Integer> performDFS(Map<Integer, List<Integer>> graph, int source) {
-        return dfs.traverse(graph, source);
-    }
+
 
     /**
      * Checks if path exists between two vertices using BFS
@@ -95,9 +91,7 @@ public class AlgorithmService {
      * @param target destination vertex
      * @return true if path exists, false otherwise
      */
-    public boolean pathExists(Map<Integer, List<Integer>> graph, int source, int target) {
-        return bfs.hasPath(graph, source, target);
-    }
+
 
     /**
      * Detects if graph contains a cycle
@@ -105,9 +99,7 @@ public class AlgorithmService {
      * @param graph adjacency list representation
      * @return true if cycle exists, false otherwise
      */
-    public boolean hasCycle(Map<Integer, List<Integer>> graph) {
-        return dfs.hasCycle(graph);
-    }
+
 
     /**
      * Calculates nth Fibonacci number using optimized DP
@@ -148,8 +140,6 @@ public class AlgorithmService {
         Map<String, String> info = new LinkedHashMap<>();
         info.put("BubbleSort", bubbleSort.getDescription());
         info.put("MergeSort", mergeSort.getDescription());
-        info.put("BFS", bfs.getDescription());
-        info.put("DFS", dfs.getDescription());
         info.put("FibonacciDP", fibonacciDP.getDescription());
         info.put("NQueens", nQueens.getDescription());
         return info;
