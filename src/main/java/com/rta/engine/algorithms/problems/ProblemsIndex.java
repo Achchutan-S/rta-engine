@@ -16,5 +16,10 @@ package com.rta.engine.algorithms.problems;
  */
 public class ProblemsIndex {
     // TODO: Add problem solutions here
+
+    public static void main(String[] args) {
+            DFS dfs = new DFS();
+            System.out.println("Inorder Traversal: " + dfs.inOrderTraversal(null));
+    }
 }
 
